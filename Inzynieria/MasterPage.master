@@ -1,0 +1,32 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="Style.css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+                <div id="top"></div>
+            <div id="menu">Menu
+            <ul>
+                <li><a href="Logowanie.aspx">Logowanie</a></li>
+                <li><a href="Rejestracja.aspx">Rejestracja</a></li>
+            </ul></div>
+            <div id="tresc">       
+                 <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                     
+                </asp:ContentPlaceHolder></div>
+            <div id="stopka">
+                <asp:Label ID="data" runat="server" Text="" ></asp:Label></div>
+
+    </div>
+    </form>
+</body>
+</html>

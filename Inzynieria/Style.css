@@ -1,0 +1,39 @@
+﻿div#top
+{
+    height:50px;
+    background-color:aqua;
+}
+div#menu
+{
+    align-content:center;
+    text-align:center;
+    float:left;
+    background-color:#808080;
+    width:200px;
+    height:auto;
+    overflow: hidden;
+	position: relative;
+}
+ul, ul li
+{
+    text-align:left;
+    align-content:inherit;
+}
+div#tresc
+{
+    height:auto;
+    margin-left:200px;
+}
+div#stopka
+{
+    justify-content:center;
+    text-align:center;
+    height:20px;
+    clear:both;
+    background-color:#4cff00;
+}
+body 
+{
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Obsluga">
+  <DataContextMoniker Name="/ObslugaDataContext" />
+  <nestedChildShapes>
+    <classShape Id="914d2203-a664-41a7-92fa-577e3c57942f" absoluteBounds="0.5, 0.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/ObslugaDataContext/Group" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ea132b6e-d918-4c57-a795-a7ff92386bbf" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="14f80643-f11a-4071-9024-3fe94dd11412" absoluteBounds="3.125, 2.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ObslugaDataContext/Rezerwacje" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c6cc1b40-c5ee-48e9-b968-b5d3d29ce320" absoluteBounds="3.1399999999999997, 3.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2b4a6525-b1c9-4d7a-a641-b2d2e0cd440b" absoluteBounds="5.625, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ObslugaDataContext/Pokoj_opi" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b527247f-fb98-42e3-8ab7-bc52e126a486" absoluteBounds="5.64, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a0e7ade4-06a7-48d1-92f8-41a4e903b4f1" absoluteBounds="5.75, 2.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ObslugaDataContext/Rachunek" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aef25f27-fe5c-436a-b3c5-eaf8c8e7da3b" absoluteBounds="5.765, 2.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.125 : 3.67714680989583); (5.75 : 3.67714680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ObslugaDataContext/Rezerwacje/Rezerwacje_Rachunek" />
+      <nodes>
+        <classShapeMoniker Id="14f80643-f11a-4071-9024-3fe94dd11412" />
+        <classShapeMoniker Id="a0e7ade4-06a7-48d1-92f8-41a4e903b4f1" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5ccf1c31-cc96-44d0-8bcf-1ab0e4ee69e3" absoluteBounds="3, 4.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ObslugaDataContext/Uslugi" />
+      <nestedChildShapes>
+        <elementListCompartment Id="057f8131-8fe3-4321-89e3-cb6c478844e1" absoluteBounds="3.0149999999999997, 4.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5 : 5.28929768880208); (6.75 : 5.28929768880208); (6.75 : 4.27089680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ObslugaDataContext/Uslugi/Uslugi_Rachunek" />
+      <nodes>
+        <classShapeMoniker Id="5ccf1c31-cc96-44d0-8bcf-1ab0e4ee69e3" />
+        <classShapeMoniker Id="a0e7ade4-06a7-48d1-92f8-41a4e903b4f1" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="47964f33-7b9c-4f1b-b12d-3921b6de8522" absoluteBounds="0.625, 2.375, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/ObslugaDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e6f72854-b06f-4e09-831e-ee7315506245" absoluteBounds="0.64000000000000012, 2.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.625 : 3.53929768880208); (3.125 : 3.53929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ObslugaDataContext/User/User_Rezerwacje" />
+      <nodes>
+        <classShapeMoniker Id="47964f33-7b9c-4f1b-b12d-3921b6de8522" />
+        <classShapeMoniker Id="14f80643-f11a-4071-9024-3fe94dd11412" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.5625 : 1.69399251302083); (1.5625 : 2.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ObslugaDataContext/Group/Group_User" />
+      <nodes>
+        <classShapeMoniker Id="914d2203-a664-41a7-92fa-577e3c57942f" />
+        <classShapeMoniker Id="47964f33-7b9c-4f1b-b12d-3921b6de8522" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3 : 5.28929768880208); (1.625 : 5.28929768880208); (1.625 : 4.53049967447917)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ObslugaDataContext/Uslugi/Uslugi_User" />
+      <nodes>
+        <classShapeMoniker Id="5ccf1c31-cc96-44d0-8bcf-1ab0e4ee69e3" />
+        <classShapeMoniker Id="47964f33-7b9c-4f1b-b12d-3921b6de8522" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c4562517-c505-4f7f-afb7-a2cbc761ede6" absoluteBounds="3.125, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ObslugaDataContext/Pokoje" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f4a292d5-ec87-4a55-b24b-48952851d1cd" absoluteBounds="3.1399999999999997, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.625 : 1.28929768880208); (5.125 : 1.28929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ObslugaDataContext/Pokoj_opi/Pokoj_opi_Pokoje" />
+      <nodes>
+        <classShapeMoniker Id="2b4a6525-b1c9-4d7a-a641-b2d2e0cd440b" />
+        <classShapeMoniker Id="c4562517-c505-4f7f-afb7-a2cbc761ede6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.125 : 2.75); (4.125 : 2.27089680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ObslugaDataContext/Rezerwacje/Rezerwacje_Pokoje" />
+      <nodes>
+        <classShapeMoniker Id="14f80643-f11a-4071-9024-3fe94dd11412" />
+        <classShapeMoniker Id="c4562517-c505-4f7f-afb7-a2cbc761ede6" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="hotels" Class="ObslugaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=localhost;Initial Catalog=hotels;Integrated Security=True;Pooling=False" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="hotelsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.[Group]" Member="Groups">
+    <Type Name="Group">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Group_User" Member="Users" ThisKey="Id" OtherKey="Group_id" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rezerwacje" Member="Rezerwacjes">
+    <Type Name="Rezerwacje">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Poczatek" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Koniec" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="User_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Rezerwacje_Rachunek" Member="Rachuneks" ThisKey="Id" OtherKey="Rezerwacje_id" Type="Rachunek" />
+      <Association Name="Rezerwacje_Pokoje" Member="Pokojes" ThisKey="Id" OtherKey="Rezerwacje_id" Type="Pokoje" />
+      <Association Name="User_Rezerwacje" Member="User" ThisKey="User_id" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pokoj_opis" Member="Pokoj_opis">
+    <Type Name="Pokoj_opi">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Opis_pokoju" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="Ile_osob" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cena" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Pokoj_opi_Pokoje" Member="Pokojes" ThisKey="Id" OtherKey="Pokoj_opis_id" Type="Pokoje" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rachunek" Member="Rachuneks">
+    <Type Name="Rachunek">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Suma" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Rabat" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Rezerwacje_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Uslugi_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Rezerwacje_Rachunek" Member="Rezerwacje" ThisKey="Rezerwacje_id" OtherKey="Id" Type="Rezerwacje" IsForeignKey="true" />
+      <Association Name="Uslugi_Rachunek" Member="Uslugi" ThisKey="Uslugi_id" OtherKey="Id" Type="Uslugi" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Uslugi" Member="Uslugis">
+    <Type Name="Uslugi">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nazwa" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="Opis" Type="System.String" DbType="NChar(255)" CanBeNull="true" />
+      <Column Name="Cena" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Uslugi_Rachunek" Member="Rachuneks" ThisKey="Id" OtherKey="Uslugi_id" Type="Rachunek" />
+      <Association Name="Uslugi_User" Member="Users" ThisKey="Id" OtherKey="Uslugi_id" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Login" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="Group_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NChar(40)" CanBeNull="true" />
+      <Column Name="Uslugi_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="User_Rezerwacje" Member="Rezerwacjes" ThisKey="Id" OtherKey="User_id" Type="Rezerwacje" />
+      <Association Name="Group_User" Member="Group" ThisKey="Group_id" OtherKey="Id" Type="Group" IsForeignKey="true" />
+      <Association Name="Uslugi_User" Member="Uslugi" ThisKey="Uslugi_id" OtherKey="Id" Type="Uslugi" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pokoje" Member="Pokojes">
+    <Type Name="Pokoje">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nr_pokoju" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Rodzaj" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="Rezerwacje_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Pokoj_opis_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Pokoj_opi_Pokoje" Member="Pokoj_opi" ThisKey="Pokoj_opis_id" OtherKey="Id" Type="Pokoj_opi" IsForeignKey="true" />
+      <Association Name="Rezerwacje_Pokoje" Member="Rezerwacje" ThisKey="Rezerwacje_id" OtherKey="Id" Type="Rezerwacje" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
